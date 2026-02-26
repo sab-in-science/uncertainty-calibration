@@ -1,7 +1,7 @@
 # ============================================================
 # refactored_UC_functions.jl
 # Implementation for the paper uncertainty calibration companion repo
-# Supports datasets: GermanyHyper, newShiftData (LMA only), Corn
+# Supports datasets: GermanyHyper, LMAmodel (LMA only), Corn
 # Implements LV-localized split-conformal-inspired uncertainty calibration
 # Duma, Z.-S., Lamminpää, O., Susiluoto, J., Haario, H., Zheng, T.,
 # Sihvonen, T., Braverman, A., Townsend, P. A., Reinikainen, S.-P.
@@ -65,7 +65,7 @@ load_raw_data(dataset, model)
 
 Returns (X, y) in Float64.
 - GermanyHyper: data/soilMoisture.mat with variables x, y
-- newShiftData: data/shiftNewData.mat with spectraMat, traitsMat; ONLY LMA allowed
+- LMAmodel: data/LMAmodel.mat with spectraMat, traitsMat; ONLY LMA allowed
 - Corn: data/corn_spectra.xlsx and data/corn_propvals.xlsx
 """
 function load_raw_data(model::Dict{Symbol,Any})
@@ -79,11 +79,11 @@ function load_raw_data(model::Dict{Symbol,Any})
         y = Array{Float64}(vec(mat["y"]))
         return X, y
 
-    elseif dataset == "newShiftData"
-        @assert get(model, :dataSubset, "LMA") == "LMA" "This repo supports only newShiftData with dataSubset=\"LMA\"."
-        mat = matread("shiftNewData.mat")
-        @assert haskey(mat, "spectraMat") "shiftNewData.mat must contain 'spectraMat'"
-        @assert haskey(mat, "traitsMat")  "shiftNewData.mat must contain 'traitsMat'"
+    elseif dataset == "LMAmodel"
+        @assert get(model, :dataSubset, "LMA") == "LMA" "This repo supports only LMAmodel with dataSubset=\"LMA\"."
+        mat = matread("LMAmodel.mat")
+        @assert haskey(mat, "spectraMat") "LMAmodel.mat must contain 'spectraMat'"
+        @assert haskey(mat, "traitsMat")  "LMAmodel.mat must contain 'traitsMat'"
 
         X0 = Array{Float64}(mat["spectraMat"])
         Y0 = mat["traitsMat"]
@@ -116,7 +116,7 @@ function load_raw_data(model::Dict{Symbol,Any})
         return X[mask, :], y[mask]
 
     else
-        error("Unsupported dataset $(dataset). Only GermanyHyper, newShiftData (LMA), Corn are included in paper repo.")
+        error("Unsupported dataset $(dataset). Only GermanyHyper, LMAmodel (LMA), Corn are included in paper repo.")
     end
 end
 
@@ -779,7 +779,7 @@ end
 run_pipeline(model)
 
 Expected minimum keys:
-:dataset  ("GermanyHyper" | "newShiftData" | "Corn")
+:dataset  ("GermanyHyper" | "LMAmodel" | "Corn")
 :method   ("PCR" | "PLS" | "KPCR" | "KPLS")
 :dim      (Int)
 :ni       (Int) number of LV intervals
