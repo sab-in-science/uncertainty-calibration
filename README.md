@@ -3,11 +3,12 @@
 
 Julia toolbox accompanying:
 
-Duma, Z.-S., Lamminpää, O., Susiluoto, J., Haario, H., Zheng, T.,
-Sihvonen, T., Braverman, A., Townsend, P. A., Reinikainen, S.-P.
-(2025).\
+Duma, Zina-Sabrina, Otto Lamminpää, Jouni Susiluoto, 
+Heikki Haario, Ting Zheng, Tuomas Sihvonen, Amy Braverman, 
+Philip A. Townsend, and Satu-Pia Reinikainen.\ 
 *Uncertainty calibration for latent-variable regression models.*\
-arXiv:2512.23444v1.
+Chemometrics and Intelligent Laboratory Systems 273 (2026): 105711\
+https://doi.org/10.1016/j.chemolab.2026.105711
 
 ------------------------------------------------------------------------
 
