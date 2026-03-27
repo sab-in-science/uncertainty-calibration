@@ -177,9 +177,17 @@ Each run returns:
 
 If you use this toolbox, please cite:
 
-    Duma, Z.-S. et al. (2025).
-    Uncertainty calibration for latent-variable regression models.
-    arXiv:2512.23444v1.
+Duma, Z. S., Lamminpää, O., Susiluoto, J., Haario, H., Zheng, T., Sihvonen, T., ... & Reinikainen, S. P. (2026). Uncertainty calibration for latent-variable regression models. Chemometrics and Intelligent Laboratory Systems, 273, 105711.
+
+@article{duma2026uncertainty,
+  title={Uncertainty calibration for latent-variable regression models},
+  author={Duma, Zina-Sabrina and Lamminp{\"a}{\"a}, Otto and Susiluoto, Jouni and Haario, Heikki and Zheng, Ting and Sihvonen, Tuomas and Braverman, Amy and Townsend, Philip A and Reinikainen, Satu-Pia},
+  journal={Chemometrics and Intelligent Laboratory Systems},
+  volume={273},
+  pages={105711},
+  year={2026},
+  publisher={Elsevier}
+}
 
 ------------------------------------------------------------------------
 
